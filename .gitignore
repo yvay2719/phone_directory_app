@@ -6,3 +6,4 @@ test_contacts.txt
 test_contacts.txt.tmp
 *.o
 .DS_Store
+.vscode/
