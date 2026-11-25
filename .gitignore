@@ -1,4 +1,5 @@
 phonebook
 contact_tests
+validator_tests
 *.o
 .DS_Store
