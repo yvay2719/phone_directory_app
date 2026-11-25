@@ -1,5 +1,8 @@
 phonebook
 contact_tests
 validator_tests
+file_storage_tests
+test_contacts.txt
+test_contacts.txt.tmp
 *.o
 .DS_Store
