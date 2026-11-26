@@ -1,4 +1,4 @@
-#include "Contact.h"
+#include "../HeaderFiles/Contact.h"
 // конструкторы
 Contact::Contact(int id,
                  const std::string &firstName,

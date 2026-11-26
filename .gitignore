@@ -10,4 +10,6 @@ test_contacts.txt.tmp
 
 phonebook_tests
 test_phonebook.txt
-test_phonebook.txt.tmp
+test_phonebook.txt.tmp 
+contacts.txt
+build/

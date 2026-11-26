@@ -1,9 +1,8 @@
 #pragma once
-
 #include <vector>
 #include <memory>
 #include <string>
-#include "Contact.h"
+#include "../HeaderFiles/Contact.h"
 #include "IContactStorage.h"
 
 class PhoneBook

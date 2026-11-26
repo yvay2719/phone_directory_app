@@ -3,8 +3,8 @@
 #include <memory>
 #include <cstdio>
 
-#include "../PhoneBook.h"
-#include "../FileStorage.h"
+#include "../HeaderFiles/PhoneBook.h"
+#include "../HeaderFiles/FileStorage.h"
 
 int passed = 0;
 int failed = 0;

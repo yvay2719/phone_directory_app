@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Contact.h"
+#include "../HeaderFiles/Contact.h"
 
 int passed = 0;
 int failed = 0;
