@@ -7,3 +7,7 @@ test_contacts.txt.tmp
 *.o
 .DS_Store
 .vscode/
+
+phonebook_tests
+test_phonebook.txt
+test_phonebook.txt.tmp

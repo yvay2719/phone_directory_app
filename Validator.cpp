@@ -141,3 +141,31 @@ bool Validator::isValidContact(const Contact &contact)
 
     return true;
 }
+
+void Validator::normalizeContact(Contact &contact)
+{
+    contact.setFirstName(trim(contact.getFirstName()));
+    contact.setLastName(trim(contact.getLastName()));
+    contact.setMiddleName(trim(contact.getMiddleName()));
+    contact.setAddress(trim(contact.getAddress()));
+    contact.setBirthDate(trim(contact.getBirthDate()));
+    std::string email = trim(contact.getEmail());
+
+    std::size_t atPos = email.find('@');
+    if (atPos != std::string::npos)
+    {
+        std::string username = trim(email.substr(0, atPos));
+        std::string domain = trim(email.substr(atPos + 1));
+        email = username + "@" + domain;
+    }
+    contact.setEmail(email);
+    for (std::size_t i = 0;
+         i < contact.getPhoneNumbers().size();
+         ++i)
+    {
+
+        PhoneNumber phone = contact.getPhoneNumbers()[i];
+        phone.setNumber(trim(phone.getNumber()));
+        contact.editPhoneNumber(i, phone);
+    }
+}

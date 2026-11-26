@@ -189,30 +189,6 @@ int main()
     check(exceptionCaught, "Incomplete contact");
     std::remove("test_contacts.txt");
 
-    // Incomplete contact
-    {
-        std::ofstream incompleteFile("test_contacts.txt");
-
-        incompleteFile << "1\n";
-        incompleteFile << "1\n";
-        incompleteFile << "\"Ivan\"\n";
-    }
-
-    exceptionCaught = false;
-
-    try
-    {
-        storage.load();
-    }
-    catch (const std::runtime_error &)
-    {
-        exceptionCaught = true;
-    }
-
-    check(exceptionCaught, "Incomplete contact");
-
-    std::remove("test_contacts.txt");
-
     std::cout << "\nTests passed: " << passed << "/"
               << passed + failed << '\n';
     std::cout << "Tests failed: " << failed << '\n';

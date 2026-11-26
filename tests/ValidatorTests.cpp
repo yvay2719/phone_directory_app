@@ -163,7 +163,37 @@ int main()
     invalidContact.setBirthDate("31.02.2000");
     check(!Validator::isValidContact(invalidContact), "Invalid contact birth date");
 
-    // Empty optional fields
+    // Contact normalization
+    Contact normalizedContact(1, "  Ivan  ", "  Ivanov  ", "  ivan @ mail.ru  ",
+                              {PhoneNumber("  +78121234567  ", PhoneNumber::Type::Home)});
+
+    normalizedContact.setMiddleName("  Ivanovich  ");
+    normalizedContact.setAddress("  Moscow  ");
+    normalizedContact.setBirthDate("  15.05.2000  ");
+
+    Validator::normalizeContact(normalizedContact);
+
+    check(normalizedContact.getFirstName() == "Ivan", "Normalize first name");
+    check(normalizedContact.getLastName() == "Ivanov", "Normalize last name");
+    check(normalizedContact.getMiddleName() == "Ivanovich", "Normalize middle name");
+    check(normalizedContact.getAddress() == "Moscow", "Normalize address");
+    check(normalizedContact.getBirthDate() == "15.05.2000", "Normalize birth date");
+
+    check(normalizedContact.getEmail() == "ivan@mail.ru",
+          "Normalize email");
+
+    const auto &normalizedPhones =
+        normalizedContact.getPhoneNumbers();
+
+    check(normalizedPhones.size() == 1,
+          "Preserve phone count");
+
+    if (normalizedPhones.size() == 1)
+    {
+        check(normalizedPhones[0].getNumber() == "+78121234567", "Normalize phone number");
+        check(normalizedPhones[0].getType() == PhoneNumber::Type::Home, "Preserve phone type");
+    }
+    check(Validator::isValidContact(normalizedContact), "Normalized contact is valid");
     check(Validator::isValidContact(validContact), "Empty optional fields");
     std::cout << "\nTests passed: " << passed << "/" << passed + failed << '\n';
     std::cout << "Tests failed: " << failed << '\n';

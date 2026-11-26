@@ -11,7 +11,6 @@ public:
     static bool isValidEmail(const std::string &email);
     static bool isValidBirthDate(const std::string &birthDate);
     static bool isValidContact(const Contact &contact);
-
-private:
+    static void normalizeContact(Contact &contact);
     static std::string trim(const std::string &value);
 };
