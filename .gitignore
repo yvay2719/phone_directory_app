@@ -1,0 +1,15 @@
+phonebook
+contact_tests
+validator_tests
+file_storage_tests
+test_contacts.txt
+test_contacts.txt.tmp
+*.o
+.DS_Store
+.vscode/
+
+phonebook_tests
+test_phonebook.txt
+test_phonebook.txt.tmp 
+contacts.txt
+build/
